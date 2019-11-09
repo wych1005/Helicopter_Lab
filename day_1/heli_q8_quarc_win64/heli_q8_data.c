@@ -7,9 +7,9 @@
  *
  * Code generation for model "heli_q8".
  *
- * Model version              : 1.57
+ * Model version              : 1.62
  * Simulink Coder version : 8.9 (R2015b) 13-Aug-2015
- * C source code generated on : Fri Aug 30 12:38:49 2019
+ * C source code generated on : Fri Nov 08 12:38:57 2019
  *
  * Target selection: quarc_win64.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -26,31 +26,22 @@ P_heli_q8_T heli_q8_P = {
   1.0,                                 /* Variable: Joystick_gain_x
                                         * Referenced by: '<S4>/Joystick_gain_x'
                                         */
-  -1.0,                                /* Variable: Joystick_gain_y
+  1.0,                                 /* Variable: Joystick_gain_y
                                         * Referenced by: '<S4>/Joystick_gain_y'
                                         */
-  0.0441,                              /* Variable: j_p
-                                        * Referenced by: '<Root>/k_f * l_c // j_p'
+  0.52848484848484878,                 /* Variable: k_1
+                                        * Referenced by: '<S1>/k_1'
                                         */
-  1.077636,                            /* Variable: j_x
+  0.08504551365409628,                 /* Variable: k_2
+                                        * Referenced by: '<S1>/k_2'
+                                        */
+  0.61173902876295927,                 /* Variable: k_3
+                                        * Referenced by: '<S1>/k_3'
+                                        */
+  7.5,                                 /* Variable: v_s0
                                         * Referenced by:
-                                        *   '<Root>/k_f * l_h // j_x'
-                                        *   '<Root>/l_p * k_f // j_x'
-                                        */
-  -0.0879,                             /* Variable: k_f
-                                        * Referenced by:
-                                        *   '<Root>/k_f * l_c // j_p'
-                                        *   '<Root>/k_f * l_h // j_x'
-                                        *   '<Root>/l_p * k_f // j_x'
-                                        */
-  0.46,                                /* Variable: l_c
-                                        * Referenced by: '<Root>/k_f * l_c // j_p'
-                                        */
-  0.66,                                /* Variable: l_h
-                                        * Referenced by: '<Root>/k_f * l_h // j_x'
-                                        */
-  0.175,                               /* Variable: l_p
-                                        * Referenced by: '<Root>/l_p * k_f // j_x'
+                                        *   '<Root>/v_s0'
+                                        *   '<S1>/Constant'
                                         */
   10.0,                                /* Mask Parameter: HILInitialize_analog_input_maxi
                                         * Referenced by: '<Root>/HIL Initialize'
@@ -270,41 +261,62 @@ P_heli_q8_T heli_q8_P = {
   0,                                   /* Mask Parameter: HILInitialize_set_pwm_params__f
                                         * Referenced by: '<Root>/HIL Initialize'
                                         */
-  0.54,                                /* Expression: 0.54
+  0.0,                                 /* Expression: 0
+                                        * Referenced by: '<S1>/Integrator1'
+                                        */
+  0.0,                                 /* Expression: 0
+                                        * Referenced by: '<S1>/Integrator'
+                                        */
+  0.0,                                 /* Expression: 0
+                                        * Referenced by: '<S1>/Integrator3'
+                                        */
+  0.0,                                 /* Expression: 0
+                                        * Referenced by: '<S1>/Integrator2'
+                                        */
+  0.0,                                 /* Expression: 0
+                                        * Referenced by: '<S1>/Integrator5'
+                                        */
+  0.0,                                 /* Expression: 0
+                                        * Referenced by: '<S1>/Integrator4'
+                                        */
+  0.00076699039394282058,              /* Expression: 2*pi/8192
+                                        * Referenced by: '<S3>/Travel: Count to rad'
+                                        */
+  -50.0,                               /* Computed Parameter: TravelTransferFcn_A
+                                        * Referenced by: '<S3>/Travel: Transfer Fcn'
+                                        */
+  -2500.0,                             /* Computed Parameter: TravelTransferFcn_C
+                                        * Referenced by: '<S3>/Travel: Transfer Fcn'
+                                        */
+  50.0,                                /* Computed Parameter: TravelTransferFcn_D
+                                        * Referenced by: '<S3>/Travel: Transfer Fcn'
+                                        */
+  -0.0015339807878856412,              /* Expression: -2*pi /4096
+                                        * Referenced by: '<S3>/Pitch: Count to rad'
+                                        */
+  -50.0,                               /* Computed Parameter: PitchTransferFcn_A
+                                        * Referenced by: '<S3>/Pitch: Transfer Fcn'
+                                        */
+  -2500.0,                             /* Computed Parameter: PitchTransferFcn_C
+                                        * Referenced by: '<S3>/Pitch: Transfer Fcn'
+                                        */
+  50.0,                                /* Computed Parameter: PitchTransferFcn_D
+                                        * Referenced by: '<S3>/Pitch: Transfer Fcn'
+                                        */
+  0.0,                                 /* Expression: 0
                                         * Referenced by: '<S3>/Constant'
                                         */
   -0.0015339807878856412,              /* Expression: -2 * pi /4096
                                         * Referenced by: '<S3>/Elevation: Count to rad'
                                         */
-  0.0,                                 /* Expression: 0
-                                        * Referenced by: '<Root>/Integrator5'
+  -50.0,                               /* Computed Parameter: ElevationTransferFcn_A
+                                        * Referenced by: '<S3>/Elevation: Transfer Fcn'
                                         */
-  -0.0015339807878856412,              /* Expression: -2*pi /4096
-                                        * Referenced by: '<S3>/Pitch: Count to rad'
+  -2500.0,                             /* Computed Parameter: ElevationTransferFcn_C
+                                        * Referenced by: '<S3>/Elevation: Transfer Fcn'
                                         */
-  0.0,                                 /* Expression: 0
-                                        * Referenced by: '<Root>/Integrator1'
-                                        */
-  0.00076699039394282058,              /* Expression: 2*pi/8192
-                                        * Referenced by: '<S3>/Travel: Count to rad'
-                                        */
-  0.0,                                 /* Expression: 0
-                                        * Referenced by: '<Root>/Integrator3'
-                                        */
-  0.0,                                 /* Expression: 0
-                                        * Referenced by: '<S4>/Rate Transition: x'
-                                        */
-  -0.1,                                /* Expression: -0.1
-                                        * Referenced by: '<S4>/Dead Zone: x'
-                                        */
-  0.1,                                 /* Expression: 0.1
-                                        * Referenced by: '<S4>/Dead Zone: x'
-                                        */
-  1.1111111111111112,                  /* Expression: 10/9
-                                        * Referenced by: '<S4>/Gain: x'
-                                        */
-  1.0,                                 /* Expression: 1
-                                        * Referenced by: '<Root>/k_x'
+  50.0,                                /* Computed Parameter: ElevationTransferFcn_D
+                                        * Referenced by: '<S3>/Elevation: Transfer Fcn'
                                         */
   0.0,                                 /* Expression: 0
                                         * Referenced by: '<S4>/Rate Transition: y'
@@ -318,44 +330,26 @@ P_heli_q8_T heli_q8_P = {
   1.1111111111111112,                  /* Expression: 10/9
                                         * Referenced by: '<S4>/Gain: y'
                                         */
-  -8.0,                                /* Expression: -8
+  8.0,                                 /* Expression: 8
                                         * Referenced by: '<Root>/k_y'
                                         */
-  7.5,                                 /* Expression: 7.5
-                                        * Referenced by: '<Root>/Constant'
+  0.0,                                 /* Expression: 0
+                                        * Referenced by: '<S4>/Rate Transition: x'
+                                        */
+  -0.1,                                /* Expression: -0.1
+                                        * Referenced by: '<S4>/Dead Zone: x'
+                                        */
+  0.1,                                 /* Expression: 0.1
+                                        * Referenced by: '<S4>/Dead Zone: x'
+                                        */
+  1.1111111111111112,                  /* Expression: 10/9
+                                        * Referenced by: '<S4>/Gain: x'
                                         */
   0.5,                                 /* Expression: 0.5
-                                        * Referenced by: '<S1>/Back gain'
+                                        * Referenced by: '<S2>/Back gain'
                                         */
   0.5,                                 /* Expression: 0.5
-                                        * Referenced by: '<S1>/Front gain'
-                                        */
-  -50.0,                               /* Computed Parameter: ElevationTransferFcn_A
-                                        * Referenced by: '<S3>/Elevation: Transfer Fcn'
-                                        */
-  -2500.0,                             /* Computed Parameter: ElevationTransferFcn_C
-                                        * Referenced by: '<S3>/Elevation: Transfer Fcn'
-                                        */
-  50.0,                                /* Computed Parameter: ElevationTransferFcn_D
-                                        * Referenced by: '<S3>/Elevation: Transfer Fcn'
-                                        */
-  -50.0,                               /* Computed Parameter: PitchTransferFcn_A
-                                        * Referenced by: '<S3>/Pitch: Transfer Fcn'
-                                        */
-  -2500.0,                             /* Computed Parameter: PitchTransferFcn_C
-                                        * Referenced by: '<S3>/Pitch: Transfer Fcn'
-                                        */
-  50.0,                                /* Computed Parameter: PitchTransferFcn_D
-                                        * Referenced by: '<S3>/Pitch: Transfer Fcn'
-                                        */
-  -50.0,                               /* Computed Parameter: TravelTransferFcn_A
-                                        * Referenced by: '<S3>/Travel: Transfer Fcn'
-                                        */
-  -2500.0,                             /* Computed Parameter: TravelTransferFcn_C
-                                        * Referenced by: '<S3>/Travel: Transfer Fcn'
-                                        */
-  50.0,                                /* Computed Parameter: TravelTransferFcn_D
-                                        * Referenced by: '<S3>/Travel: Transfer Fcn'
+                                        * Referenced by: '<S2>/Front gain'
                                         */
   5.0,                                 /* Expression: 5
                                         * Referenced by: '<S3>/Front motor: Saturation'
@@ -368,27 +362,6 @@ P_heli_q8_T heli_q8_P = {
                                         */
   -5.0,                                /* Expression: -5
                                         * Referenced by: '<S3>/Back motor: Saturation'
-                                        */
-  0.0,                                 /* Expression: 0
-                                        * Referenced by: '<Root>/Integrator'
-                                        */
-  0.0,                                 /* Expression: 0
-                                        * Referenced by: '<Root>/Integrator2'
-                                        */
-  0.0,                                 /* Expression: 0
-                                        * Referenced by: '<Root>/Integrator4'
-                                        */
-  0.0,                                 /* Expression: 0
-                                        * Referenced by: '<S6>/Integrator'
-                                        */
-  0.0,                                 /* Expression: inf
-                                        * Referenced by: '<S6>/Integrator'
-                                        */
-  0.0,                                 /* Expression: -inf
-                                        * Referenced by: '<S6>/Integrator'
-                                        */
-  5.0,                                 /* Expression: 5
-                                        * Referenced by: '<S6>/K_ei'
                                         */
   12U,                                 /* Computed Parameter: GameController_BufferSize
                                         * Referenced by: '<S4>/Game Controller'

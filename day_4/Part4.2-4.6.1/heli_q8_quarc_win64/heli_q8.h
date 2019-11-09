@@ -7,9 +7,9 @@
  *
  * Code generation for model "heli_q8".
  *
- * Model version              : 1.74
+ * Model version              : 1.76
  * Simulink Coder version : 8.9 (R2015b) 13-Aug-2015
- * C source code generated on : Fri Oct 11 14:07:44 2019
+ * C source code generated on : Fri Nov 08 13:40:39 2019
  *
  * Target selection: quarc_win64.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -845,17 +845,13 @@ typedef struct {
   real_T pp;                           /* '<S9>/pp' */
   real_T ee;                           /* '<S9>/ee' */
   real_T TmpSignalConversionAtToWorkspac[5];
-  real_T Constant1;                    /* '<Root>/Constant1' */
+  real_T ElevationTransferFcn;         /* '<S3>/Elevation: Transfer Fcn' */
+  real_T PitchTransferFcn;             /* '<S3>/Pitch: Transfer Fcn' */
+  real_T TravelTransferFcn;            /* '<S3>/Travel: Transfer Fcn' */
   real_T RateTransitionx;              /* '<S5>/Rate Transition: x' */
   real_T Joystick_gain_x;              /* '<S5>/Joystick_gain_x' */
   real_T RateTransitiony;              /* '<S5>/Rate Transition: y' */
   real_T Joystick_gain_y;              /* '<S5>/Joystick_gain_y' */
-  real_T Gain[2];                      /* '<S6>/Gain' */
-  real_T PitchTransferFcn;             /* '<S3>/Pitch: Transfer Fcn' */
-  real_T ElevationTransferFcn;         /* '<S3>/Elevation: Transfer Fcn' */
-  real_T TravelTransferFcn;            /* '<S3>/Travel: Transfer Fcn' */
-  real_T FrontmotorSaturation;         /* '<S3>/Front motor: Saturation' */
-  real_T BackmotorSaturation;          /* '<S3>/Back motor: Saturation' */
   real_T GameController_o4;            /* '<S5>/Game Controller' */
   real_T GameController_o5;            /* '<S5>/Game Controller' */
   real_T Sum3;                         /* '<S8>/Sum3' */
@@ -874,9 +870,9 @@ typedef struct {
   real_T HILInitialize_FilterFrequency[8];/* '<Root>/HIL Initialize' */
   real_T HILInitialize_POSortedFreqs[8];/* '<Root>/HIL Initialize' */
   real_T HILInitialize_POValues[8];    /* '<Root>/HIL Initialize' */
+  real_T HILWriteAnalog_Buffer[2];     /* '<S3>/HIL Write Analog' */
   real_T RateTransitionx_Buffer0;      /* '<S5>/Rate Transition: x' */
   real_T RateTransitiony_Buffer0;      /* '<S5>/Rate Transition: y' */
-  real_T HILWriteAnalog_Buffer[2];     /* '<S3>/HIL Write Analog' */
   t_stream StreamCall1_Stream;         /* '<S4>/Stream Call1' */
   t_game_controller GameController_Controller;/* '<S5>/Game Controller' */
   t_card HILInitialize_Card;           /* '<Root>/HIL Initialize' */
@@ -947,32 +943,29 @@ typedef struct {
 
 /* Continuous states (auto storage) */
 typedef struct {
-  real_T PitchTransferFcn_CSTATE;      /* '<S3>/Pitch: Transfer Fcn' */
   real_T ElevationTransferFcn_CSTATE;  /* '<S3>/Elevation: Transfer Fcn' */
+  real_T PitchTransferFcn_CSTATE;      /* '<S3>/Pitch: Transfer Fcn' */
+  real_T TravelTransferFcn_CSTATE;     /* '<S3>/Travel: Transfer Fcn' */
   real_T Integrator_CSTATE;            /* '<S8>/Integrator' */
   real_T Integrator1_CSTATE;           /* '<S8>/Integrator1' */
-  real_T TravelTransferFcn_CSTATE;     /* '<S3>/Travel: Transfer Fcn' */
-  real_T Integrator_CSTATE_i;          /* '<Root>/Integrator' */
 } X_heli_q8_T;
 
 /* State derivatives (auto storage) */
 typedef struct {
-  real_T PitchTransferFcn_CSTATE;      /* '<S3>/Pitch: Transfer Fcn' */
   real_T ElevationTransferFcn_CSTATE;  /* '<S3>/Elevation: Transfer Fcn' */
+  real_T PitchTransferFcn_CSTATE;      /* '<S3>/Pitch: Transfer Fcn' */
+  real_T TravelTransferFcn_CSTATE;     /* '<S3>/Travel: Transfer Fcn' */
   real_T Integrator_CSTATE;            /* '<S8>/Integrator' */
   real_T Integrator1_CSTATE;           /* '<S8>/Integrator1' */
-  real_T TravelTransferFcn_CSTATE;     /* '<S3>/Travel: Transfer Fcn' */
-  real_T Integrator_CSTATE_i;          /* '<Root>/Integrator' */
 } XDot_heli_q8_T;
 
 /* State disabled  */
 typedef struct {
-  boolean_T PitchTransferFcn_CSTATE;   /* '<S3>/Pitch: Transfer Fcn' */
   boolean_T ElevationTransferFcn_CSTATE;/* '<S3>/Elevation: Transfer Fcn' */
+  boolean_T PitchTransferFcn_CSTATE;   /* '<S3>/Pitch: Transfer Fcn' */
+  boolean_T TravelTransferFcn_CSTATE;  /* '<S3>/Travel: Transfer Fcn' */
   boolean_T Integrator_CSTATE;         /* '<S8>/Integrator' */
   boolean_T Integrator1_CSTATE;        /* '<S8>/Integrator1' */
-  boolean_T TravelTransferFcn_CSTATE;  /* '<S3>/Travel: Transfer Fcn' */
-  boolean_T Integrator_CSTATE_i;       /* '<Root>/Integrator' */
 } XDis_heli_q8_T;
 
 #ifndef ODE1_INTG
@@ -1001,20 +994,11 @@ typedef struct {
 
 /* Parameters (auto storage) */
 struct P_heli_q8_T_ {
-  real_T Fi[4];                        /* Variable: Fi
-                                        * Referenced by: '<S6>/Gain'
-                                        */
   real_T Joystick_gain_x;              /* Variable: Joystick_gain_x
                                         * Referenced by: '<S5>/Joystick_gain_x'
                                         */
   real_T Joystick_gain_y;              /* Variable: Joystick_gain_y
                                         * Referenced by: '<S5>/Joystick_gain_y'
-                                        */
-  real_T Ki[10];                       /* Variable: Ki
-                                        * Referenced by: '<S7>/Ki'
-                                        */
-  real_T v_s0;                         /* Variable: v_s0
-                                        * Referenced by: '<Root>/Constant1'
                                         */
   real_T HILInitialize_analog_input_maxi;/* Mask Parameter: HILInitialize_analog_input_maxi
                                           * Referenced by: '<Root>/HIL Initialize'
@@ -1250,6 +1234,51 @@ struct P_heli_q8_T_ {
   real_T Gain2_Gain[9];                /* Expression: [ 0, 0, 1; 0, 1, 0; -1, 0, 0]
                                         * Referenced by: '<S4>/Gain2'
                                         */
+  real_T Backgain_Gain;                /* Expression: 0.5
+                                        * Referenced by: '<S1>/Back gain'
+                                        */
+  real_T Frontgain_Gain;               /* Expression: 0.5
+                                        * Referenced by: '<S1>/Front gain'
+                                        */
+  real_T ElevationTransferFcn_A;       /* Computed Parameter: ElevationTransferFcn_A
+                                        * Referenced by: '<S3>/Elevation: Transfer Fcn'
+                                        */
+  real_T ElevationTransferFcn_C;       /* Computed Parameter: ElevationTransferFcn_C
+                                        * Referenced by: '<S3>/Elevation: Transfer Fcn'
+                                        */
+  real_T ElevationTransferFcn_D;       /* Computed Parameter: ElevationTransferFcn_D
+                                        * Referenced by: '<S3>/Elevation: Transfer Fcn'
+                                        */
+  real_T PitchTransferFcn_A;           /* Computed Parameter: PitchTransferFcn_A
+                                        * Referenced by: '<S3>/Pitch: Transfer Fcn'
+                                        */
+  real_T PitchTransferFcn_C;           /* Computed Parameter: PitchTransferFcn_C
+                                        * Referenced by: '<S3>/Pitch: Transfer Fcn'
+                                        */
+  real_T PitchTransferFcn_D;           /* Computed Parameter: PitchTransferFcn_D
+                                        * Referenced by: '<S3>/Pitch: Transfer Fcn'
+                                        */
+  real_T TravelTransferFcn_A;          /* Computed Parameter: TravelTransferFcn_A
+                                        * Referenced by: '<S3>/Travel: Transfer Fcn'
+                                        */
+  real_T TravelTransferFcn_C;          /* Computed Parameter: TravelTransferFcn_C
+                                        * Referenced by: '<S3>/Travel: Transfer Fcn'
+                                        */
+  real_T TravelTransferFcn_D;          /* Computed Parameter: TravelTransferFcn_D
+                                        * Referenced by: '<S3>/Travel: Transfer Fcn'
+                                        */
+  real_T FrontmotorSaturation_UpperSat;/* Expression: 5
+                                        * Referenced by: '<S3>/Front motor: Saturation'
+                                        */
+  real_T FrontmotorSaturation_LowerSat;/* Expression: -5
+                                        * Referenced by: '<S3>/Front motor: Saturation'
+                                        */
+  real_T BackmotorSaturation_UpperSat; /* Expression: 5
+                                        * Referenced by: '<S3>/Back motor: Saturation'
+                                        */
+  real_T BackmotorSaturation_LowerSat; /* Expression: -5
+                                        * Referenced by: '<S3>/Back motor: Saturation'
+                                        */
   real_T RateTransitionx_X0;           /* Expression: 0
                                         * Referenced by: '<S5>/Rate Transition: x'
                                         */
@@ -1274,59 +1303,11 @@ struct P_heli_q8_T_ {
   real_T Gainy_Gain;                   /* Expression: 10/9
                                         * Referenced by: '<S5>/Gain: y'
                                         */
-  real_T PitchTransferFcn_A;           /* Computed Parameter: PitchTransferFcn_A
-                                        * Referenced by: '<S3>/Pitch: Transfer Fcn'
-                                        */
-  real_T PitchTransferFcn_C;           /* Computed Parameter: PitchTransferFcn_C
-                                        * Referenced by: '<S3>/Pitch: Transfer Fcn'
-                                        */
-  real_T PitchTransferFcn_D;           /* Computed Parameter: PitchTransferFcn_D
-                                        * Referenced by: '<S3>/Pitch: Transfer Fcn'
-                                        */
-  real_T ElevationTransferFcn_A;       /* Computed Parameter: ElevationTransferFcn_A
-                                        * Referenced by: '<S3>/Elevation: Transfer Fcn'
-                                        */
-  real_T ElevationTransferFcn_C;       /* Computed Parameter: ElevationTransferFcn_C
-                                        * Referenced by: '<S3>/Elevation: Transfer Fcn'
-                                        */
-  real_T ElevationTransferFcn_D;       /* Computed Parameter: ElevationTransferFcn_D
-                                        * Referenced by: '<S3>/Elevation: Transfer Fcn'
-                                        */
   real_T Integrator_IC;                /* Expression: 0
                                         * Referenced by: '<S8>/Integrator'
                                         */
   real_T Integrator1_IC;               /* Expression: 0
                                         * Referenced by: '<S8>/Integrator1'
-                                        */
-  real_T Backgain_Gain;                /* Expression: 0.5
-                                        * Referenced by: '<S1>/Back gain'
-                                        */
-  real_T Frontgain_Gain;               /* Expression: 0.5
-                                        * Referenced by: '<S1>/Front gain'
-                                        */
-  real_T TravelTransferFcn_A;          /* Computed Parameter: TravelTransferFcn_A
-                                        * Referenced by: '<S3>/Travel: Transfer Fcn'
-                                        */
-  real_T TravelTransferFcn_C;          /* Computed Parameter: TravelTransferFcn_C
-                                        * Referenced by: '<S3>/Travel: Transfer Fcn'
-                                        */
-  real_T TravelTransferFcn_D;          /* Computed Parameter: TravelTransferFcn_D
-                                        * Referenced by: '<S3>/Travel: Transfer Fcn'
-                                        */
-  real_T FrontmotorSaturation_UpperSat;/* Expression: 5
-                                        * Referenced by: '<S3>/Front motor: Saturation'
-                                        */
-  real_T FrontmotorSaturation_LowerSat;/* Expression: -5
-                                        * Referenced by: '<S3>/Front motor: Saturation'
-                                        */
-  real_T BackmotorSaturation_UpperSat; /* Expression: 5
-                                        * Referenced by: '<S3>/Back motor: Saturation'
-                                        */
-  real_T BackmotorSaturation_LowerSat; /* Expression: -5
-                                        * Referenced by: '<S3>/Back motor: Saturation'
-                                        */
-  real_T Integrator_IC_i;              /* Expression: 0
-                                        * Referenced by: '<Root>/Integrator'
                                         */
   int32_T StreamCall1_SendBufferSize;  /* Computed Parameter: StreamCall1_SendBufferSize
                                         * Referenced by: '<S4>/Stream Call1'
@@ -1402,7 +1383,7 @@ struct tag_RTM_heli_q8_T {
     boolean_T zCCacheNeedsReset;
     boolean_T derivCacheNeedsReset;
     boolean_T blkStateChange;
-    real_T odeF[1][6];
+    real_T odeF[1][5];
     ODE1_IntgData intgData;
     void *dwork;
   } ModelData;

@@ -14,7 +14,7 @@
 %%%%%%%%%%% Calibration of the encoder and the hardware for the specific
 %%%%%%%%%%% helicopter
 Joystick_gain_x = 1;
-Joystick_gain_y = -1;
+Joystick_gain_y = 1;
 
 
 %%%%%%%%%%% Physical constants
@@ -30,8 +30,8 @@ j_p = 2*m_p*l_p.^2;
 j_e = m_c*l_c.^2 + 2*m_p*l_h.^2;
 j_x = m_c*l_c.^2 + 2*m_p*(l_h.^2 + l_p.^2);
 
-k_f = (2*m_p*l_h-m_c*l_c)*g/(v_s0*l_h);
 v_s0 = 7.5;
+k_f = (2*m_p*l_h-m_c*l_c)*g/(v_s0*l_h);
 
 l_1 = l_p*k_f;
 l_2 = l_h*k_f;
@@ -41,3 +41,5 @@ k_1 = l_1/j_p;
 k_2 = l_2/j_e;
 k_3 = v_s0*l_3/j_x;
 
+e_0 = -0.54;
+p_0 = 0.02;

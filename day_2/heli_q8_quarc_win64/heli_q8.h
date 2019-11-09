@@ -7,9 +7,9 @@
  *
  * Code generation for model "heli_q8".
  *
- * Model version              : 1.59
+ * Model version              : 1.63
  * Simulink Coder version : 8.9 (R2015b) 13-Aug-2015
- * C source code generated on : Fri Oct 11 12:50:51 2019
+ * C source code generated on : Fri Nov 08 14:21:04 2019
  *
  * Target selection: quarc_win64.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -824,6 +824,9 @@
 
 /* Block signals (auto storage) */
 typedef struct {
+  real_T Constant2;                    /* '<Root>/Constant2' */
+  real_T RateTransitionx;              /* '<S4>/Rate Transition: x' */
+  real_T Joystick_gain_x;              /* '<S4>/Joystick_gain_x' */
   real_T PitchCounttorad;              /* '<S3>/Pitch: Count to rad' */
   real_T k_pp;                         /* '<S5>/k_pp' */
   real_T PitchTransferFcn;             /* '<S3>/Pitch: Transfer Fcn' */
@@ -836,8 +839,6 @@ typedef struct {
   real_T TravelTransferFcn;            /* '<S3>/Travel: Transfer Fcn' */
   real_T FrontmotorSaturation;         /* '<S3>/Front motor: Saturation' */
   real_T BackmotorSaturation;          /* '<S3>/Back motor: Saturation' */
-  real_T RateTransitionx;              /* '<S4>/Rate Transition: x' */
-  real_T Joystick_gain_x;              /* '<S4>/Joystick_gain_x' */
   real_T RateTransitiony;              /* '<S4>/Rate Transition: y' */
   real_T Joystick_gain_y;              /* '<S4>/Joystick_gain_y' */
   real_T GameController_o4;            /* '<S4>/Game Controller' */
@@ -854,8 +855,8 @@ typedef struct {
   real_T HILInitialize_FilterFrequency[8];/* '<Root>/HIL Initialize' */
   real_T HILInitialize_POSortedFreqs[8];/* '<Root>/HIL Initialize' */
   real_T HILInitialize_POValues[8];    /* '<Root>/HIL Initialize' */
-  real_T HILWriteAnalog_Buffer[2];     /* '<S3>/HIL Write Analog' */
   real_T RateTransitionx_Buffer0;      /* '<S4>/Rate Transition: x' */
+  real_T HILWriteAnalog_Buffer[2];     /* '<S3>/HIL Write Analog' */
   real_T RateTransitiony_Buffer0;      /* '<S4>/Rate Transition: y' */
   t_game_controller GameController_Controller;/* '<S4>/Game Controller' */
   t_card HILInitialize_Card;           /* '<Root>/HIL Initialize' */
@@ -959,11 +960,17 @@ struct P_heli_q8_T_ {
   real_T Joystick_gain_y;              /* Variable: Joystick_gain_y
                                         * Referenced by: '<S4>/Joystick_gain_y'
                                         */
+  real_T e_0;                          /* Variable: e_0
+                                        * Referenced by: '<S3>/Constant'
+                                        */
   real_T k_pd;                         /* Variable: k_pd
                                         * Referenced by: '<S5>/k_pd'
                                         */
   real_T k_pp;                         /* Variable: k_pp
                                         * Referenced by: '<S5>/k_pp'
+                                        */
+  real_T v_s0;                         /* Variable: v_s0
+                                        * Referenced by: '<Root>/Constant2'
                                         */
   real_T HILInitialize_analog_input_maxi;/* Mask Parameter: HILInitialize_analog_input_maxi
                                           * Referenced by: '<Root>/HIL Initialize'
@@ -1169,11 +1176,20 @@ struct P_heli_q8_T_ {
   boolean_T HILInitialize_set_pwm_params__f;/* Mask Parameter: HILInitialize_set_pwm_params__f
                                              * Referenced by: '<Root>/HIL Initialize'
                                              */
-  real_T Constant_Value;               /* Expression: 0.54
+  real_T Constant_Value;               /* Expression: 0
                                         * Referenced by: '<Root>/Constant'
                                         */
-  real_T Constant1_Value;              /* Expression: 0
-                                        * Referenced by: '<Root>/Constant1'
+  real_T RateTransitionx_X0;           /* Expression: 0
+                                        * Referenced by: '<S4>/Rate Transition: x'
+                                        */
+  real_T DeadZonex_Start;              /* Expression: -0.1
+                                        * Referenced by: '<S4>/Dead Zone: x'
+                                        */
+  real_T DeadZonex_End;                /* Expression: 0.1
+                                        * Referenced by: '<S4>/Dead Zone: x'
+                                        */
+  real_T Gainx_Gain;                   /* Expression: 10/9
+                                        * Referenced by: '<S4>/Gain: x'
                                         */
   real_T PitchCounttorad_Gain;         /* Expression: -2*pi /4096
                                         * Referenced by: '<S3>/Pitch: Count to rad'
@@ -1196,9 +1212,6 @@ struct P_heli_q8_T_ {
   real_T Integrator_LowerSat;          /* Expression: -inf
                                         * Referenced by: '<S6>/Integrator'
                                         */
-  real_T Constant_Value_f;             /* Expression: 0
-                                        * Referenced by: '<S3>/Constant'
-                                        */
   real_T ElevationCounttorad_Gain;     /* Expression: -2 * pi /4096
                                         * Referenced by: '<S3>/Elevation: Count to rad'
                                         */
@@ -1216,9 +1229,6 @@ struct P_heli_q8_T_ {
                                         */
   real_T K_ed_Gain;                    /* Expression: 12
                                         * Referenced by: '<S6>/K_ed'
-                                        */
-  real_T gain_Gain;                    /* Expression: -1
-                                        * Referenced by: '<Root>/gain'
                                         */
   real_T Backgain_Gain;                /* Expression: 0.5
                                         * Referenced by: '<S1>/Back gain'
@@ -1252,18 +1262,6 @@ struct P_heli_q8_T_ {
                                         */
   real_T BackmotorSaturation_LowerSat; /* Expression: -5
                                         * Referenced by: '<S3>/Back motor: Saturation'
-                                        */
-  real_T RateTransitionx_X0;           /* Expression: 0
-                                        * Referenced by: '<S4>/Rate Transition: x'
-                                        */
-  real_T DeadZonex_Start;              /* Expression: -0.1
-                                        * Referenced by: '<S4>/Dead Zone: x'
-                                        */
-  real_T DeadZonex_End;                /* Expression: 0.1
-                                        * Referenced by: '<S4>/Dead Zone: x'
-                                        */
-  real_T Gainx_Gain;                   /* Expression: 10/9
-                                        * Referenced by: '<S4>/Gain: x'
                                         */
   real_T RateTransitiony_X0;           /* Expression: 0
                                         * Referenced by: '<S4>/Rate Transition: y'

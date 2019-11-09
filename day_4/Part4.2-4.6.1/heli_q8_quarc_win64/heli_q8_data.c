@@ -7,9 +7,9 @@
  *
  * Code generation for model "heli_q8".
  *
- * Model version              : 1.74
+ * Model version              : 1.76
  * Simulink Coder version : 8.9 (R2015b) 13-Aug-2015
- * C source code generated on : Fri Oct 11 14:07:44 2019
+ * C source code generated on : Fri Nov 08 13:40:39 2019
  *
  * Target selection: quarc_win64.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -23,26 +23,11 @@
 
 /* Block parameters (auto storage) */
 P_heli_q8_T heli_q8_P = {
-  /*  Variable: Fi
-   * Referenced by: '<S6>/Gain'
-   */
-  { 0.0, 10.0, 10.0, 0.0 },
   1.0,                                 /* Variable: Joystick_gain_x
                                         * Referenced by: '<S5>/Joystick_gain_x'
                                         */
   1.0,                                 /* Variable: Joystick_gain_y
                                         * Referenced by: '<S5>/Joystick_gain_y'
-                                        */
-
-  /*  Variable: Ki
-   * Referenced by: '<S7>/Ki'
-   */
-  { 1.480578304250251E-15, 13.387088439502882, 5.831638392651379E-16,
-    7.4607068443535915, 16.31836468253071, 3.6238625648072E-15,
-    1.0729182634220502E-15, 9.9999999999999787, 7.0710678118654737,
-    2.02304818221873E-15 },
-  7.5,                                 /* Variable: v_s0
-                                        * Referenced by: '<Root>/Constant1'
                                         */
   10.0,                                /* Mask Parameter: HILInitialize_analog_input_maxi
                                         * Referenced by: '<Root>/HIL Initialize'
@@ -296,6 +281,51 @@ P_heli_q8_T heli_q8_P = {
    * Referenced by: '<S4>/Gain2'
    */
   { 0.0, 0.0, -1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 0.0 },
+  0.5,                                 /* Expression: 0.5
+                                        * Referenced by: '<S1>/Back gain'
+                                        */
+  0.5,                                 /* Expression: 0.5
+                                        * Referenced by: '<S1>/Front gain'
+                                        */
+  -50.0,                               /* Computed Parameter: ElevationTransferFcn_A
+                                        * Referenced by: '<S3>/Elevation: Transfer Fcn'
+                                        */
+  -2500.0,                             /* Computed Parameter: ElevationTransferFcn_C
+                                        * Referenced by: '<S3>/Elevation: Transfer Fcn'
+                                        */
+  50.0,                                /* Computed Parameter: ElevationTransferFcn_D
+                                        * Referenced by: '<S3>/Elevation: Transfer Fcn'
+                                        */
+  -50.0,                               /* Computed Parameter: PitchTransferFcn_A
+                                        * Referenced by: '<S3>/Pitch: Transfer Fcn'
+                                        */
+  -2500.0,                             /* Computed Parameter: PitchTransferFcn_C
+                                        * Referenced by: '<S3>/Pitch: Transfer Fcn'
+                                        */
+  50.0,                                /* Computed Parameter: PitchTransferFcn_D
+                                        * Referenced by: '<S3>/Pitch: Transfer Fcn'
+                                        */
+  -50.0,                               /* Computed Parameter: TravelTransferFcn_A
+                                        * Referenced by: '<S3>/Travel: Transfer Fcn'
+                                        */
+  -2500.0,                             /* Computed Parameter: TravelTransferFcn_C
+                                        * Referenced by: '<S3>/Travel: Transfer Fcn'
+                                        */
+  50.0,                                /* Computed Parameter: TravelTransferFcn_D
+                                        * Referenced by: '<S3>/Travel: Transfer Fcn'
+                                        */
+  5.0,                                 /* Expression: 5
+                                        * Referenced by: '<S3>/Front motor: Saturation'
+                                        */
+  -5.0,                                /* Expression: -5
+                                        * Referenced by: '<S3>/Front motor: Saturation'
+                                        */
+  5.0,                                 /* Expression: 5
+                                        * Referenced by: '<S3>/Back motor: Saturation'
+                                        */
+  -5.0,                                /* Expression: -5
+                                        * Referenced by: '<S3>/Back motor: Saturation'
+                                        */
   0.0,                                 /* Expression: 0
                                         * Referenced by: '<S5>/Rate Transition: x'
                                         */
@@ -320,59 +350,11 @@ P_heli_q8_T heli_q8_P = {
   1.1111111111111112,                  /* Expression: 10/9
                                         * Referenced by: '<S5>/Gain: y'
                                         */
-  -50.0,                               /* Computed Parameter: PitchTransferFcn_A
-                                        * Referenced by: '<S3>/Pitch: Transfer Fcn'
-                                        */
-  -2500.0,                             /* Computed Parameter: PitchTransferFcn_C
-                                        * Referenced by: '<S3>/Pitch: Transfer Fcn'
-                                        */
-  50.0,                                /* Computed Parameter: PitchTransferFcn_D
-                                        * Referenced by: '<S3>/Pitch: Transfer Fcn'
-                                        */
-  -50.0,                               /* Computed Parameter: ElevationTransferFcn_A
-                                        * Referenced by: '<S3>/Elevation: Transfer Fcn'
-                                        */
-  -2500.0,                             /* Computed Parameter: ElevationTransferFcn_C
-                                        * Referenced by: '<S3>/Elevation: Transfer Fcn'
-                                        */
-  50.0,                                /* Computed Parameter: ElevationTransferFcn_D
-                                        * Referenced by: '<S3>/Elevation: Transfer Fcn'
-                                        */
   0.0,                                 /* Expression: 0
                                         * Referenced by: '<S8>/Integrator'
                                         */
   0.0,                                 /* Expression: 0
                                         * Referenced by: '<S8>/Integrator1'
-                                        */
-  0.5,                                 /* Expression: 0.5
-                                        * Referenced by: '<S1>/Back gain'
-                                        */
-  0.5,                                 /* Expression: 0.5
-                                        * Referenced by: '<S1>/Front gain'
-                                        */
-  -50.0,                               /* Computed Parameter: TravelTransferFcn_A
-                                        * Referenced by: '<S3>/Travel: Transfer Fcn'
-                                        */
-  -2500.0,                             /* Computed Parameter: TravelTransferFcn_C
-                                        * Referenced by: '<S3>/Travel: Transfer Fcn'
-                                        */
-  50.0,                                /* Computed Parameter: TravelTransferFcn_D
-                                        * Referenced by: '<S3>/Travel: Transfer Fcn'
-                                        */
-  5.0,                                 /* Expression: 5
-                                        * Referenced by: '<S3>/Front motor: Saturation'
-                                        */
-  -5.0,                                /* Expression: -5
-                                        * Referenced by: '<S3>/Front motor: Saturation'
-                                        */
-  5.0,                                 /* Expression: 5
-                                        * Referenced by: '<S3>/Back motor: Saturation'
-                                        */
-  -5.0,                                /* Expression: -5
-                                        * Referenced by: '<S3>/Back motor: Saturation'
-                                        */
-  0.0,                                 /* Expression: 0
-                                        * Referenced by: '<Root>/Integrator'
                                         */
   8000,                                /* Computed Parameter: StreamCall1_SendBufferSize
                                         * Referenced by: '<S4>/Stream Call1'
@@ -390,7 +372,7 @@ P_heli_q8_T heli_q8_P = {
   /*  Expression: value
    * Referenced by: '<S4>/String Constant'
    */
-  { 115U, 101U, 114U, 105U, 97U, 108U, 58U, 47U, 47U, 73U, 77U, 85U, 58U, 52U,
+  { 115U, 101U, 114U, 105U, 97U, 108U, 58U, 47U, 47U, 73U, 77U, 85U, 58U, 54U,
     63U, 98U, 97U, 117U, 100U, 61U, 49U, 49U, 53U, 50U, 48U, 48U, 44U, 119U,
     111U, 114U, 100U, 61U, 56U, 44U, 112U, 97U, 114U, 105U, 116U, 121U, 61U,
     110U, 111U, 110U, 101U, 44U, 115U, 116U, 111U, 112U, 61U, 49U, 0U, 0U, 0U,

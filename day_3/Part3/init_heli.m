@@ -42,26 +42,10 @@ k_1 = l_1/j_p;
 k_2 = l_2/j_e;
 k_3 = l_3/j_x;
 
-%%%%%%%%%%%  Part 2  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+e_0 = -0.54;
+p_0 = 0.16;
 
-%%%%%%%%%%% PD-reg
-%k_pp = k_pd*k_pd*k_1/4;
-%k_pp = 8;
-%k_pd = 4;
-w_0=5;
-z=1;
-k_pp = w_0*w_0/k_1;
-k_pd=z*2*w_0/k_1;
-
-
-%w_0 = sqrt(k_pp*k_1); %the undamped angular frequency omega_0
-%z = (k_1*k_pd) / (2*w_0); %damping ratio zeta
-
-% Transfer function: p/p_c
-s = tf('s');
-G_PD = w_0^2 / (s^2 + 2*z*w_0*s + w_0^2);
-%step(G_PD) %margin(G_PD); %bode(G_PD);
-%grid on;
+%%%%%%%%%%%  Part 3  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 A = [0 1 0;0 0 0;0 0 0];
 B = [0 0;0 k_1;k_2 0];
@@ -71,18 +55,6 @@ C = ctrb(A, B);
 Q = [30 0 0; 0 5 0; 0 0 100];
 R = [0.7 0 ; 0 0.7];
 K = lqr(A, B, Q, R);
-K1 = [0 0 -1; 1 2 0];
 C1 = [1 0 0;0 0 1];
 
-F = inv(C1*inv((B*K)-A)*B);
-
-%A_i = [0 1 0 0 0; 0 0 0 0 0; 0 0 0 0 0; 1 0 0 0 0; 0 0 1 0 0];
-%B_i = [B; 0 0; 0 0];
-%R_i = [1 0; 0 1]
-%R_mat = [0 0; 0 0; 0 0; 1 0; 0 1];
-%C2 = [1 0 0 0 0; 0 0 1 0 0];
-%q_i_pivots = [1 1 1 0 0];
-%Q_i = diag(q_i_pivots);
-%Ki = lqr(A_i, B_i, Q_i, R_i);
-%Fi = inv(C2*inv((B_i*Ki)-A_i)*B_i);
-%Fi = eye(2);
+F = inv(C1*(inv((B*K)-A))*B);

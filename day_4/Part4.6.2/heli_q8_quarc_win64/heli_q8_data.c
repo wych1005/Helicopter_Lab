@@ -7,9 +7,9 @@
  *
  * Code generation for model "heli_q8".
  *
- * Model version              : 1.76
+ * Model version              : 1.80
  * Simulink Coder version : 8.9 (R2015b) 13-Aug-2015
- * C source code generated on : Fri Oct 11 14:33:28 2019
+ * C source code generated on : Fri Oct 25 11:23:53 2019
  *
  * Target selection: quarc_win64.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -23,10 +23,10 @@
 
 /* Block parameters (auto storage) */
 P_heli_q8_T heli_q8_P = {
-  /*  Variable: Fi
+  /*  Variable: F
    * Referenced by: '<S6>/Gain'
    */
-  { 0.0, 10.0, 10.0, 0.0 },
+  { -0.0, 6.54653670707977, 11.952286093343927, 0.0 },
   1.0,                                 /* Variable: Joystick_gain_x
                                         * Referenced by: '<S5>/Joystick_gain_x'
                                         */
@@ -34,13 +34,10 @@ P_heli_q8_T heli_q8_P = {
                                         * Referenced by: '<S5>/Joystick_gain_y'
                                         */
 
-  /*  Variable: Ki
-   * Referenced by: '<S7>/Ki'
+  /*  Variable: K
+   * Referenced by: '<S7>/K'
    */
-  { 1.480578304250251E-15, 13.387088439502882, 5.831638392651379E-16,
-    7.4607068443535915, 16.31836468253071, 3.6238625648072E-15,
-    1.0729182634220502E-15, 9.9999999999999787, 7.0710678118654737,
-    2.02304818221873E-15 },
+  { 0.0, 6.54653670707977, 0.0, 5.649565884306309, 11.952286093343927, 0.0 },
   7.5,                                 /* Variable: v_s0
                                         * Referenced by: '<Root>/Constant1'
                                         */
@@ -320,12 +317,6 @@ P_heli_q8_T heli_q8_P = {
   1.1111111111111112,                  /* Expression: 10/9
                                         * Referenced by: '<S5>/Gain: y'
                                         */
-  0.0,                                 /* Expression: 0
-                                        * Referenced by: '<S8>/Integrator'
-                                        */
-  0.0,                                 /* Expression: 0
-                                        * Referenced by: '<S8>/Integrator1'
-                                        */
   0.5,                                 /* Expression: 0.5
                                         * Referenced by: '<S1>/Back gain'
                                         */
@@ -370,9 +361,6 @@ P_heli_q8_T heli_q8_P = {
                                         */
   -5.0,                                /* Expression: -5
                                         * Referenced by: '<S3>/Back motor: Saturation'
-                                        */
-  0.0,                                 /* Expression: 0
-                                        * Referenced by: '<Root>/Integrator'
                                         */
   8000,                                /* Computed Parameter: StreamCall1_SendBufferSize
                                         * Referenced by: '<S4>/Stream Call1'

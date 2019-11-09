@@ -129,7 +129,7 @@ RELATIVE_PATH_TO_ANCHOR   = ..
 MODELREF_TARGET_TYPE      = NONE
 
 #-- Support for parallel builds
-START_DIR         = C:\Users\magneau\Documents\MATLAB\day_2
+START_DIR         = C:\Users\waiyc\Documents\MATLAB\day_2
 MASTER_ANCHOR_DIR = 
 
 #-- Support multi-instance code

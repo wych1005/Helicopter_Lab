@@ -101,7 +101,7 @@ S_FUNCTIONS_LIB      = C:\PROGRA~1\Quanser\QUARC\lib\win64\hil.lib C:\PROGRA~1\Q
 SOLVER               = 
 NUMST                = 3
 TID01EQ              = 1
-NCSTATES             = 6
+NCSTATES             = 5
 COMPUTER             = PCWIN64
 BUILDARGS            =  MAT_FILE=0 SHOW_TIMES=0 DEBUG=0 DEBUG_HEAP=0 ISPROTECTINGMODEL=NOTPROTECTING OPTS="-DON_TARGET_WAIT_FOR_START=0"
 MULTITASKING         = 1
@@ -129,7 +129,7 @@ RELATIVE_PATH_TO_ANCHOR   = ..
 MODELREF_TARGET_TYPE      = NONE
 
 #-- Support for parallel builds
-START_DIR         = C:\Users\magneau\Documents\MATLAB\day_4\Part4.2-4.6
+START_DIR         = C:\Users\waiyc\Documents\MATLAB\day_4\Part4.2-4.6.1
 MASTER_ANCHOR_DIR = 
 
 #-- Support multi-instance code
@@ -167,7 +167,6 @@ MATLAB_INCLUDES = $(MATLAB_INCLUDES);$(MATLAB_ROOT)\rtw\c\src\ext_mode\common
 
 MATLAB_INCLUDES = $(MATLAB_INCLUDES);$(START_DIR)\heli_q8_quarc_win64
 MATLAB_INCLUDES = $(MATLAB_INCLUDES);$(START_DIR)
-MATLAB_INCLUDES = $(MATLAB_INCLUDES);C:\Users\magneau\Documents\MATLAB\day_4\Part4.2,6
 MATLAB_INCLUDES = $(MATLAB_INCLUDES);$(MATLAB_ROOT)\toolbox\coder\rtiostream\src\utils
 MATLAB_INCLUDES = $(MATLAB_INCLUDES);C:\PROGRA~1\Quanser\QUARC\blocks\COMMUN~1
 MATLAB_INCLUDES = $(MATLAB_INCLUDES);C:\PROGRA~1\Quanser\QUARC\include

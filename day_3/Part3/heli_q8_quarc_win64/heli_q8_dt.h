@@ -9,7 +9,7 @@
  *
  * Model version              : 1.64
  * Simulink Coder version : 8.9 (R2015b) 13-Aug-2015
- * C source code generated on : Fri Sep 27 14:22:27 2019
+ * C source code generated on : Fri Nov 08 13:24:20 2019
  *
  * Target selection: quarc_win64.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -64,7 +64,7 @@ static const char_T * rtDataTypeNames[] = {
 
 /* data type transitions for block I/O structure */
 static DataTypeTransition rtBTransitions[] = {
-  { (char_T *)(&heli_q8_B.Constant1), 0, 0, 22 }
+  { (char_T *)(&heli_q8_B.Constant1), 0, 0, 19 }
   ,
 
   { (char_T *)(&heli_q8_DW.HILInitialize_AIMinimums[0]), 0, 0, 68 },
@@ -75,7 +75,7 @@ static DataTypeTransition rtBTransitions[] = {
 
   { (char_T *)(&heli_q8_DW.HILReadEncoderTimebase_Task), 16, 0, 1 },
 
-  { (char_T *)(&heli_q8_DW.ElevationScoperads_PWORK.LoggedData), 11, 0, 12 },
+  { (char_T *)(&heli_q8_DW.ElevationScoperads_PWORK.LoggedData), 11, 0, 10 },
 
   { (char_T *)(&heli_q8_DW.HILInitialize_ClockModes[0]), 6, 0, 46 },
 
@@ -90,7 +90,7 @@ static DataTypeTransitionTable rtBTransTable = {
 
 /* data type transitions for Parameters structure */
 static DataTypeTransition rtPTransitions[] = {
-  { (char_T *)(&heli_q8_P.F[0]), 0, 0, 30 },
+  { (char_T *)(&heli_q8_P.F[0]), 0, 0, 31 },
 
   { (char_T *)(&heli_q8_P.HILReadEncoderTimebase_clock), 6, 0, 10 },
 
@@ -98,7 +98,7 @@ static DataTypeTransition rtPTransitions[] = {
 
   { (char_T *)(&heli_q8_P.HILInitialize_active), 8, 0, 35 },
 
-  { (char_T *)(&heli_q8_P.RateTransitionx_X0), 0, 0, 34 },
+  { (char_T *)(&heli_q8_P.RateTransitionx_X0), 0, 0, 27 },
 
   { (char_T *)(&heli_q8_P.GameController_BufferSize), 5, 0, 1 },
 

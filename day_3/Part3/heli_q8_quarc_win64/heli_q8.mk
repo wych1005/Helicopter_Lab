@@ -101,7 +101,7 @@ S_FUNCTIONS_LIB      = C:\PROGRA~1\Quanser\QUARC\lib\win64\hil.lib C:\PROGRA~1\Q
 SOLVER               = 
 NUMST                = 3
 TID01EQ              = 1
-NCSTATES             = 4
+NCSTATES             = 3
 COMPUTER             = PCWIN64
 BUILDARGS            =  MAT_FILE=0 SHOW_TIMES=0 DEBUG=0 DEBUG_HEAP=0 ISPROTECTINGMODEL=NOTPROTECTING OPTS="-DON_TARGET_WAIT_FOR_START=0"
 MULTITASKING         = 1
@@ -129,7 +129,7 @@ RELATIVE_PATH_TO_ANCHOR   = ..
 MODELREF_TARGET_TYPE      = NONE
 
 #-- Support for parallel builds
-START_DIR         = C:\Users\endredi\Documents\MATLAB\Part3
+START_DIR         = C:\Users\waiyc\Documents\MATLAB\day_3\Part3
 MASTER_ANCHOR_DIR = 
 
 #-- Support multi-instance code

@@ -7,9 +7,9 @@
  *
  * Code generation for model "heli_q8".
  *
- * Model version              : 1.74
+ * Model version              : 1.76
  * Simulink Coder version : 8.9 (R2015b) 13-Aug-2015
- * C source code generated on : Fri Oct 11 14:07:44 2019
+ * C source code generated on : Fri Nov 08 13:40:39 2019
  *
  * Target selection: quarc_win64.tlc
  * Note: GRT includes extra infrastructure and instrumentation for prototyping
@@ -80,7 +80,7 @@ static const char_T * rtDataTypeNames[] = {
 
 /* data type transitions for block I/O structure */
 static DataTypeTransition rtBTransitions[] = {
-  { (char_T *)(&heli_q8_B.PitchCounttorad), 0, 0, 31 },
+  { (char_T *)(&heli_q8_B.PitchCounttorad), 0, 0, 26 },
 
   { (char_T *)(&heli_q8_B.StreamCall1_o2), 3, 0, 1 }
   ,
@@ -112,7 +112,7 @@ static DataTypeTransitionTable rtBTransTable = {
 
 /* data type transitions for Parameters structure */
 static DataTypeTransition rtPTransitions[] = {
-  { (char_T *)(&heli_q8_P.Fi[0]), 0, 0, 34 },
+  { (char_T *)(&heli_q8_P.Joystick_gain_x), 0, 0, 19 },
 
   { (char_T *)(&heli_q8_P.HILReadEncoderTimebase_clock), 6, 0, 10 },
 
@@ -120,7 +120,7 @@ static DataTypeTransition rtPTransitions[] = {
 
   { (char_T *)(&heli_q8_P.HILInitialize_active), 8, 0, 35 },
 
-  { (char_T *)(&heli_q8_P.Constant2_Value), 0, 0, 52 },
+  { (char_T *)(&heli_q8_P.Constant2_Value), 0, 0, 51 },
 
   { (char_T *)(&heli_q8_P.StreamCall1_SendBufferSize), 6, 0, 2 },
 
